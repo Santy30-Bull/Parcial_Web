@@ -1,4 +1,4 @@
-export const ContactUs = () => {
+export const Footer = () => {
     return (
         <>
         <footer className="bg-gray-800 text-white py-8">
@@ -32,5 +32,5 @@ export const ContactUs = () => {
     );
 };
 
-export default ContactUs;
+export default Footer;
 

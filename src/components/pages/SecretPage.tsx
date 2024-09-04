@@ -3,7 +3,6 @@ import {motion} from 'framer-motion';
 export const SecretPage = () => {
     return (
         <div className="relative overflow-hidden">
-            {/* Capa de "corte" */}
             <motion.div
                 className="absolute inset-0 bg-gray-800"
                 initial={{ clipPath: 'polygon(0 0, 0 0, 0 100%, 0 100%)' }}
@@ -11,7 +10,6 @@ export const SecretPage = () => {
                 exit={{ clipPath: 'polygon(0 0, 0 0, 0 100%, 0 100%)' }}
                 transition={{ duration: 2 }}
             />
-            {/* Contenido de la página */}
             <motion.div
                 className="relative z-10"
                 initial={{ opacity: 0 }}
