@@ -1,0 +1,21 @@
+.admin-dashboard {
+    background-color: #f8f9fa;
+}
+
+.dashboard-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.dashboard-content {
+    margin-top: 2rem;
+}
+
+.dashboard-section {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+}
+
+.dashboard-section h2 {
+    border-bottom: 2px solid #e2e8f0;
+}
