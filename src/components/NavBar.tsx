@@ -6,7 +6,7 @@ export const Navbar = () => {
         <nav className="bg-gray-800 p-4">
             <div className="container mx-auto flex justify-between items-center">
                 <div className="text-white text-lg font-semibold">
-                    <Link to="/" className="hover:text-gray-400">Home Page</Link>
+                    <Link to="/home" className="hover:text-gray-400">Home Page</Link>
                 </div>
                 <div className="space-x-3">
                     <Link to="/products" className="text-white hover:text-gray-400">Products</Link>
