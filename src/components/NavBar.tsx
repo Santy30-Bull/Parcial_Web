@@ -12,7 +12,7 @@ export const Navbar = () => {
                     <Link to="/products" className="text-white hover:text-gray-400">Products</Link>
                     <Link to="/events" className="text-white hover:text-gray-400">Events</Link>
                     <Link to="/models" className="text-white hover:text-gray-400">Models</Link>
-                    <Link to="/sales" className="text-white hover:text-gray-400">Store</Link>
+                    <Link to="/sales" className="text-white hover:text-gray-400">Others</Link>
                 </div>
                 <div className="space-x-4">
                     <Link to="/contact" className="text-white hover:text-gray-400">Contact Us</Link>
