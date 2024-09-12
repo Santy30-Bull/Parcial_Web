@@ -1,0 +1,44 @@
+{
+    "routes": [
+      {
+        "route": "/home",
+        "rewrite": "/index.html"
+      },
+      {
+        "route": "/1234/secret",
+        "rewrite": "/index.html"
+      },
+      {
+        "route": "*",
+        "rewrite": "/index.html"
+      },
+      {
+        "route": "/admin",
+        "rewrite": "/index.html"
+      },
+      {
+        "route": "/",
+        "rewrite": "/index.html"
+      },
+        {
+            "route": "/events",
+            "rewrite": "/index.html"
+        },
+        {
+            "route": "/products",
+            "rewrite": "/index.html"
+        },
+        {
+            "route": "/models",
+            "rewrite": "/index.html"
+        },
+        {
+            "route": "/sales",
+            "rewrite": "/index.html"
+        },
+        {
+            "route": "/contact",
+            "rewrite": "/index.html"
+        }
+    ]
+  }

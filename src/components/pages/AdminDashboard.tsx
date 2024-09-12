@@ -1,4 +1,5 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
+
 
 export const AdminDashboard = () => {
     const navigate = useNavigate();
@@ -28,6 +29,12 @@ export const AdminDashboard = () => {
                 <DashboardSection title="Manage Memberships" description="View or edit membership plans." />
                 <DashboardSection title="Website Analytics" description="Track website visits and user interactions." />
             </div>
+            <button 
+                className="bg-blue-500 hover:bg-blue-600 transition text-white px-4 py-2 rounded-lg shadow-sm mt-4"
+                onClick={() => navigate('/1234/secret')} // Navega a la ruta deseada
+            >
+                Secret
+            </button>
         </div>
     );
 };
