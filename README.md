@@ -45,7 +45,7 @@ Para acceder a la página de inicio de sesión y probar su funcionalidad, utiliz
 
 ## Accessing the Secret Page
 
-En el buscador ingresa al http://localhost:5173/1234/secret
+Ingresar como admin, una vez ingresado habra un boton que dice secreto, al presionar dicho boton sera redirigido a la pagina secreta.
 
 ## Technologies Used
 
