@@ -1,53 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-interface User {
-    email: string;
-    password: string;
-    isAdmin: boolean;
-}
-
 export const LoginPage = () => {
-    const [isAdmin, setIsAdmin] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isAdmin, setIsAdmin] = useState(false);
     const [error, setError] = useState('');
     const [signUpMode, setSignUpMode] = useState(false);
-    const [users, setUsers] = useState<User[]>([]);
-    const [redirectTo] = useState<string | null>(null);
+
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const storedUsers = localStorage.getItem('users');
-        if (storedUsers) {
-            setUsers(JSON.parse(storedUsers));
-        } else {
-            const adminAccount = {
-                email: 'admin@example.com',
-                password: '12345678',
-                isAdmin: true,
-            };
-            localStorage.setItem('users', JSON.stringify([adminAccount]));
-            setUsers([adminAccount]);
-        }
-    }, []);
-
-    useEffect(() => {
-        if (redirectTo) {
-            navigate(redirectTo);
-        }
-    }, [redirectTo, navigate]);
-
     const handleLogin = () => {
-        const foundUser = users.find(user => user.email === email.trim() && user.password === password);
-        if (!foundUser) {
-            setError('Invalid email or password.');
-            return;
-        }
-        if (foundUser.isAdmin !== isAdmin) {
-            setError('You are trying to log in as the wrong user type.');
-            return;
-        }
+        // Redirigir a la página correspondiente
         navigate(isAdmin ? '/admin' : '/home');
     };
 
@@ -56,16 +20,11 @@ export const LoginPage = () => {
             setError('Please enter a valid email and a password with at least 8 characters.');
             return;
         }
-        if (users.find(user => user.email === email)) {
-            setError('This email is already registered.');
-            return;
-        }
-        const newUser: User = { email, password, isAdmin };
-        const updatedUsers = [...users, newUser];
-        localStorage.setItem('users', JSON.stringify(updatedUsers));
-        setUsers(updatedUsers);
-        setSignUpMode(false);
         setError('');
+        // Puedes agregar un nuevo usuario a un sistema de base de datos o a un estado aquí si quieres simularlo
+        // Para este diseño solo validamos y mostramos un mensaje de éxito
+        alert('Sign up successful!');
+        setSignUpMode(false);
     };
 
     return (
@@ -96,7 +55,7 @@ export const LoginPage = () => {
                     type="email"
                     placeholder="Email"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value.trim())}
+                    onChange={(e) => setEmail(e.target.value)}
                     className="w-full p-3 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
                 <input
@@ -106,14 +65,6 @@ export const LoginPage = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     className="w-full p-3 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
-
-                {/* Remember Me option */}
-                {!signUpMode && (
-                    <div className="flex items-center mb-4">
-                        <input type="checkbox" id="rememberMe" className="mr-2" />
-                        <label htmlFor="rememberMe" className="text-gray-600">Remember Me</label>
-                    </div>
-                )}
 
                 {/* Error Message */}
                 {error && <p className="mb-4 text-red-500">{error}</p>}

@@ -1,12 +1,18 @@
-import { useNavigate} from 'react-router-dom';
-
+import { useState } from 'react';
+import { ModelosAdmin } from '../AdminComponents/ModelosAdmin';
 
 export const AdminDashboard = () => {
-    const navigate = useNavigate();
+    const [showModelosAdmin, setShowModelosAdmin] = useState(false); // Estado para mostrar/ocultar ModelosAdmin
 
+    // Función para manejar el cierre de sesión
     const handleLogout = () => {
         localStorage.removeItem('users');
-        navigate('/');
+        window.location.href = '/'; // Redirigir manualmente a la página principal
+    };
+
+    // Función para mostrar el componente de ModelosAdmin
+    const handleManageModelsClick = () => {
+        setShowModelosAdmin(true); // Mostrar el componente ModelosAdmin
     };
 
     return (
@@ -22,26 +28,31 @@ export const AdminDashboard = () => {
             </div>
 
             <div className="dashboard-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <DashboardSection title="Manage Models" description="Add, update, or remove models." />
+                <DashboardSection 
+                    title="Manage Models" 
+                    description="Add, update, or remove models." 
+                    onClick={handleManageModelsClick} // Al hacer clic, mostrar ModelosAdmin
+                />
                 <DashboardSection title="Manage Products" description="Add, update, or remove products." />
                 <DashboardSection title="Manage Events" description="Create, update, or delete events." />
                 <DashboardSection title="Manage Photos" description="Upload or delete photos." />
                 <DashboardSection title="Manage Memberships" description="View or edit membership plans." />
                 <DashboardSection title="Website Analytics" description="Track website visits and user interactions." />
             </div>
-            <button 
-                className="bg-blue-500 hover:bg-blue-600 transition text-white px-4 py-2 rounded-lg shadow-sm mt-4"
-                onClick={() => navigate('/1234/secret')} // Navega a la ruta deseada
-            >
-                Secret
-            </button>
+
+            {/* Condicional para mostrar ModelosAdmin cuando el usuario haga clic */}
+            {showModelosAdmin && <ModelosAdmin />}
+
         </div>
     );
 };
 
-const DashboardSection = ({ title, description }: { title: string, description: string }) => {
+const DashboardSection = ({ title, description, onClick }: { title: string, description: string, onClick?: () => void }) => {
     return (
-        <div className="dashboard-section bg-white p-6 rounded-lg shadow-md transition-transform transform hover:scale-105 hover:shadow-lg">
+        <div 
+            className="dashboard-section bg-white p-6 rounded-lg shadow-md transition-transform transform hover:scale-105 hover:shadow-lg" 
+            onClick={onClick} // Ejecutar el manejador al hacer clic
+        >
             <h2 className="text-xl font-semibold text-gray-700 mb-2">{title}</h2>
             <p className="text-gray-600">{description}</p>
         </div>
@@ -49,4 +60,3 @@ const DashboardSection = ({ title, description }: { title: string, description: 
 };
 
 export default AdminDashboard;
-
