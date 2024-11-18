@@ -76,8 +76,6 @@ export const AdminDashboard = () => {
                     description="Create, update, or delete events." 
                     onClick={handleManageEventsClick} // Maneja clic en "Manage Events"
                 />
-                <DashboardSection title="Manage Memberships" description="View or edit membership plans." />
-                <DashboardSection title="Website Analytics" description="Track website visits and user interactions." />
             </div>
 
             {/* Mostrar componentes según el estado */}
