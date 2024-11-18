@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import axios from 'axios';
 
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
 export const ModelosAdmin = () => {
     const [isAddModalOpen, setIsAddModalOpen] = useState(false);
     const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
@@ -39,7 +41,7 @@ export const ModelosAdmin = () => {
     const handleSaveModel = async () => {
         try {
             const modelData = { nombre, descripcion, eventoId };
-            const response = await axios.post('http://localhost:3000/modelos', modelData, {
+            const response = await axios.post(`${backendUrl}/modelos`, modelData, {
                 headers: { 'Content-Type': 'application/json' }
             });
             if (response.status === 201) {
@@ -64,7 +66,7 @@ export const ModelosAdmin = () => {
         try {
             // Obtener los datos actuales del modelo
             const { data: currentModel } = await axios.get(
-                `http://localhost:3000/modelos/${modelId}`
+                `${backendUrl}/modelos/${modelId}`
             );
     
             // Crear el nuevo objeto con los datos existentes y los actualizados
@@ -77,7 +79,7 @@ export const ModelosAdmin = () => {
     
             // Realizar el PATCH
             const response = await axios.patch(
-                `http://localhost:3000/modelos/${modelId}`,
+                `${backendUrl}/modelos/${modelId}`,
                 updatedModel,
                 {
                     headers: { "Content-Type": "application/json" },
@@ -99,7 +101,7 @@ export const ModelosAdmin = () => {
     // Función para manejar la eliminación del modelo (DELETE)
     const handleDeleteModel = async () => {
         try {
-            const response = await axios.delete(`http://localhost:3000/modelos/${modelId}`);
+            const response = await axios.delete(`${backendUrl}/modelos/${modelId}`);
             if (response.status === 200) {
                 alert('Model successfully deleted!');
             } else {

@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import axios from 'axios';
 
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
 export const ProductosAdmin = () => {
     const [isAddModalOpen, setIsAddModalOpen] = useState(false);
     const [isPatchModalOpen, setIsPatchModalOpen] = useState(false);
@@ -46,7 +48,7 @@ export const ProductosAdmin = () => {
     const handleSaveProduct = async () => {
         try {
             const productData = { nombre, descripcion, precio, stock, estado };
-            const response = await axios.post('http://localhost:3000/productos', productData, {
+            const response = await axios.post(`${backendUrl}/productos`, productData, {
                 headers: { 'Content-Type': 'application/json' }
             });
             if (response.status === 201) {
@@ -64,7 +66,7 @@ export const ProductosAdmin = () => {
     // Función para manejar la eliminación del producto (DELETE)
     const handleDeleteProduct = async () => {
         try {
-            const response = await axios.delete(`http://localhost:3000/productos/${productId}`);
+            const response = await axios.delete(`${backendUrl}/productos/${productId}`);
             if (response.status === 200) {
                 alert('Product successfully deleted!');
             } else {
@@ -96,7 +98,7 @@ export const ProductosAdmin = () => {
 
         try {
             // Enviar la solicitud PATCH solo con los campos que han sido modificados
-            const response = await axios.patch(`http://localhost:3000/productos/${productId}`, updatedFields, {
+            const response = await axios.patch(`${backendUrl}/productos/${productId}`, updatedFields, {
                 headers: { 'Content-Type': 'application/json' }
             });
 

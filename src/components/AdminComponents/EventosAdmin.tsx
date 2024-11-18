@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import axios from 'axios';
 
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
+
 export const EventosAdmin = () => {
     const [isAddModalOpen, setIsAddModalOpen] = useState(false);
     const [isPatchModalOpen, setIsPatchModalOpen] = useState(false);
@@ -57,7 +60,7 @@ export const EventosAdmin = () => {
                 ModeloId: modeloIds,
             };
 
-            const response = await axios.post('http://localhost:3000/eventos', data, {
+            const response = await axios.post(`${backendUrl}/eventos`, data, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -78,7 +81,7 @@ export const EventosAdmin = () => {
     const handleDeleteEvent = async () => {
         console.log(`Deleting event with ID: ${eventId}`);
         try {
-            const response = await axios.delete(`http://localhost:3000/eventos/${eventId}`, {
+            const response = await axios.delete(`${backendUrl}/${eventId}`, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -111,7 +114,7 @@ export const EventosAdmin = () => {
         }
 
         try {
-            const response = await axios.patch(`http://localhost:3000/eventos/${eventId}`, updatedFields, {
+            const response = await axios.patch(`${backendUrl}/eventos/${eventId}`, updatedFields, {
                 headers: {
                     'Content-Type': 'application/json',
                 },

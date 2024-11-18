@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 export const FotosAdmin = () => {
     const [isAddModalOpen, setIsAddModalOpen] = useState(false);
@@ -60,7 +61,7 @@ export const FotosAdmin = () => {
                 estado, // Include the activo state
             };
 
-            const response = await axios.post('http://localhost:3000/fotos', data, {
+            const response = await axios.post(`${backendUrl}/fotos`, data, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -80,7 +81,7 @@ export const FotosAdmin = () => {
 
     const handleDeletePhoto = async () => {
         try {
-            const response = await axios.delete(`http://localhost:3000/fotos/${photoId}`, {
+            const response = await axios.delete(`${backendUrl}/fotos/${photoId}`, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -113,7 +114,7 @@ export const FotosAdmin = () => {
         }
 
         try {
-            const response = await axios.patch(`http://localhost:3000/fotos/${photoId}`, updatedFields, {
+            const response = await axios.patch(`${backendUrl}/fotos/${photoId}`, updatedFields, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
