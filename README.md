@@ -31,18 +31,6 @@ La plataforma muestra modelos, productos de maquillaje, eventos de moda y otros 
 7. **Admin Dashboard**: 
    - Los administradores pueden gestionar modelos, productos, eventos, fotos y membresías a través de un inicio de sesión seguro.
 
-## Login Credentials
-
-Para acceder a la página de inicio de sesión y probar su funcionalidad, utiliza las siguientes credenciales:
-
-- **Member Login**: 
-  - Username: `member`
-  - Password: `password123`
-
-- **Admin Login**: 
-  - Username: `admin`
-  - Password: `adminpassword`
-
 ## Accessing the Secret Page
 
 Ingresar como admin, una vez ingresado habra un boton que dice secreto, al presionar dicho boton sera redirigido a la pagina secreta.
