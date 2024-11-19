@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-const backendUrl = process.env.REACT_APP_BACKEND_URL;
+const backendUrl = process.env.VITE_BACKEND_URL;
 
 
 export const EventosAdmin = () => {
