@@ -38,10 +38,12 @@ Ingresar como admin, una vez ingresado habra un boton que dice secreto, al presi
 ## Technologies Used
 
 - **Frontend**: React, TypeScript, CSS, Tailwind
-- **Backend** (Optional for future implementation): Nest.js, Java, or Go for the API
-- **Database**: PostgreSQL or MongoDB for managing data
+- **Backend** Nest.js
+- **Database**: PostgreSQL
 
-## Future Enhancements
+## Deploy
+El deploy de la parte Front-end de este proyecto se hizo usando Railway y quedo una hermosura :)
 
-- Integrating server-side rendering with **Next.js** for optimized performance.
-- Building the backend API with **Nest.js**, **Java**, or **Go** to support scalable data management.
+<img width="460" alt="{B334EDC6-3FB0-4CAC-8D5D-2CFE170D6BCF}" src="https://github.com/user-attachments/assets/f5d332aa-1abd-4c68-9877-c4d9a8c12726">
+
+
