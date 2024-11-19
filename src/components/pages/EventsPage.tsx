@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
+
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 // Nueva interfaz de evento con productos y modelos
 interface Evento {
@@ -34,7 +36,7 @@ export const EventPage = () => {
         const fetchEvents = async () => {
             try {
                 // Asegúrate de que la URL de la API sea correcta
-                const response = await axios.get('http://localhost:3000/eventos');
+                const response = await axios.get(`${backendUrl}/eventos`);
                 console.log('Fetched events:', response.data); // Verifica los datos
                 setEvents(response.data); // Asume que la API devuelve un array de eventos
             } catch (err) {

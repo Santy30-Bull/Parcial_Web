@@ -1,5 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
+
+
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 // Actualizamos la interfaz para reflejar los nombres correctos de las propiedades
 interface Photo {
@@ -23,7 +26,7 @@ export const SalesPage = () => {
         const fetchPhotos = async () => {
             try {
                 // Reemplaza '/api/photos' con la URL de tu API
-                const response = await axios.get('http://localhost:3000/fotos');
+                const response = await axios.get(`${backendUrl}/fotos`);
                 setPhotos(response.data); // Asume que la API devuelve un array de fotos
             } catch (err) {
                 setError('Failed to fetch photos');

@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
+
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 // Interfaz para los modelos con los campos en español
 interface Model {
@@ -18,7 +20,7 @@ interface Model {
 // Función para obtener los modelos desde la API
 export const fetchAllModels = async (): Promise<Model[]> => {
     try {
-        const response = await axios.get('http://localhost:3000/modelos');
+        const response = await axios.get(`${backendUrl}/modelos`);
         console.log('Response from API:', response.data);  // Ver los datos completos
         return response.data || [];  // Asegúrate de que los datos se devuelvan correctamente
     } catch (error) {
